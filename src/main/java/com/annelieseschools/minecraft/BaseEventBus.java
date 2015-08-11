@@ -4,7 +4,7 @@ import net.minecraftforge.common.MinecraftForge;
 
 public class BaseEventBus {
 
-	public static void addModToBus(Object target) {
+	public static void addMod(Object target) {
 		MinecraftForge.EVENT_BUS.register(target);		
 	}
 }

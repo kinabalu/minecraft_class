@@ -23,7 +23,7 @@ public class BaseEvent {
 				false);
 	}
 	
-	public boolean isLocal(Entity entity) {
+	public boolean isRunningLocal(Entity entity) {
 		return !entity.worldObj.isRemote;
 	}
 	
@@ -31,8 +31,8 @@ public class BaseEvent {
 		entity.dropItem(item, dropCount);		
 	}
 	
-	public boolean entityIsA(EntityEvent event, Entity entity) {
-		if(!(event.entity.getClass().equals(entity))) {
+	public boolean entityIsA(Entity entity, Class entityClass) {
+		if(!entity.getClass().isAssignableFrom(entityClass)) {
 			return false;
 		}
 		
