@@ -11,40 +11,19 @@ import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.item.ItemExpireEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-public class BiggerTNTExplosion {
+public class BiggerTNTExplosion extends BaseEvent {
 
 	int fuse = 4;
 	float power = 32.0F;
 	
 	@SubscribeEvent
 	public void spawnTNTItem(EntityJoinWorldEvent event) {
-		if(!(event.entity instanceof EntityTNTPrimed)) {
+		Entity entity = getEntityFromEvent(event);
+
+		if(entityIsNotA(entity, EntityTNTPrimed.class)) {
 			return;
 		}
 		
-		Entity entity = event.entity;
-		
-//		EntityPig pig = new EntityPig(event.world);
-//		EntityItem explosion = new EntityItem(event.world, entity.posX, entity.posY, entity.posZ, new EntityPig);
-		EntityItem explosion = new EntityItem(event.world, entity.posX, entity.posY, entity.posZ, new ItemStack(Blocks.tnt));
-		explosion.setInfinitePickupDelay();
-		explosion.motionX = 0;
-		explosion.motionY = 0;
-		explosion.motionZ = 0;
-		explosion.lifespan = fuse * 20;
-		if(!event.world.isRemote) {
-			event.world.spawnEntityInWorld(explosion);
-		}
-		
-	}
-	
-	@SubscribeEvent
-	public void explode(ItemExpireEvent event) {
-		if(event.entityItem.getEntityItem().getItem() != Item.getItemFromBlock(Blocks.tnt)) {
-			return;
-		}
-		
-		Entity entity = event.entity;
-		event.entity.worldObj.createExplosion(entity, entity.posX, entity.posY, entity.posZ, power, true);		
-	}
+		createExplosion(entity);
+	}	
 }

@@ -20,11 +20,14 @@ public class PigsDroppingDiamonds extends BaseEvent {
 		// - If it's not a pig, return
 		//
 		// Method:
-		// entityIsNotA(eventEntity, entityClass)
+		// entityIsNotA(entity, EntityPig.class)
 		// 
+		// in the if statement "return"
+		//
 		// Ensure we are running a local game
 		// - if(isRunningLocal(event)) {
-		//
+		//    // code goes here
+		// }
 		// If running a local game drop item
 		//
 		// Method:

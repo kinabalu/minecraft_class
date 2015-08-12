@@ -15,14 +15,18 @@ public class BaseEvent {
 		event.getPlayer().addChatComponentMessage(new ChatComponentText(color + message));				
 	}
 	
-	public void createExplosion(Entity entity) {
+	public void createExplosion(Entity entity, float power) {
 		entity.worldObj.createExplosion(
 				entity,
 				entity.posX,
 				entity.posY,
 				entity.posZ,
-				2,
-				false);
+				power,
+				false);		
+	}
+	
+	public void createExplosion(Entity entity) {
+		createExplosion(entity, 2.0f);
 	}
 	
 	public boolean isRunningLocal(LivingEvent event) {
