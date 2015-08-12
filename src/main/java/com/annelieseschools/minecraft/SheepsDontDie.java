@@ -19,8 +19,13 @@ public class SheepsDontDie extends BaseEvent {
 		
 		//
 		// We want to spawn an entity called a sheep
-		// so we'll use a loop which is a little more difficult
+		// and we want to make more than one
+		// so we'll use a loop which is a bit more
 		// to write in java
+		//
+		// int i=0 - declares a variable and assigns it a value 0
+		// i < 5   - says to stop only when value is less than 5
+		// i++     - for every loop makes i increase it's value by 1
 		//
 		// for (int i=0; i<5; i++) {
 		//    put code here
