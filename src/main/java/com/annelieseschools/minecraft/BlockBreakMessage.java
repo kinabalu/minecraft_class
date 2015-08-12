@@ -7,9 +7,11 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class BlockBreakMessage extends BaseEvent {
 
+	String myMessage = "You broke a block!";
+	
 	@SubscribeEvent
 	public void event(BreakEvent event) {
-		postMessage(event, TextColor.GOLD, "You broke a block!");
+		postMessage(event, EnumChatFormatting.GOLD, myMessage);
 	}
 	
 }

@@ -13,8 +13,8 @@ public class Main extends BaseEventBus {
 
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
-		addMad(new BlockBreakMessage());
-		addMad(new PigsDroppingDiamonds());
+		addMod(new BlockBreakMessage());
+		addMod(new PigsDroppingDiamonds());
 //		MinecraftForge.EVENT_BUS.register(new ExplodingMinecarts());
 //		MinecraftForge.EVENT_BUS.register(new DiamondOreTrap());
 //		MinecraftForge.EVENT_BUS.register(new BiggerTNTExplosion());
