@@ -3,6 +3,7 @@ package com.annelieseschools.minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.passive.EntityHorse;
+import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -16,7 +17,7 @@ public class SpawnTamedHorse extends BaseEvent {
 		Entity entity = getEntityFromEvent(event);
 		World world = getWorldFromEvent(event);
 		
-		if(entityIsNotA(entity, EntityCow.class)) {
+		if(!(entity instanceof EntityCow)) {
 			return;
 		}
 		

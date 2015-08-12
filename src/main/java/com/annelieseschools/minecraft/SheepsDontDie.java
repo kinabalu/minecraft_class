@@ -11,7 +11,7 @@ public class SheepsDontDie extends BaseEvent {
 	@SubscribeEvent
 	public void sheepAreResilient(LivingDeathEvent event) {
 		Entity entity = event.entity;
-		if(entityIsNotA(entity, EntitySheep.class)) {
+		if(!(entity instanceof EntitySheep)) {
 			return;
 		}
 		

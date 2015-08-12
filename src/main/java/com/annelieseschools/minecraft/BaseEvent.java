@@ -37,14 +37,6 @@ public class BaseEvent {
 		entity.dropItem(item, dropCount);		
 	}
 	
-	public boolean entityIsA(Entity entity, Class entityClass) {
-		return entity.getClass().isInstance(entityClass);
-	}
-	
-	public boolean entityIsNotA(Entity entity, Class entityClass) {
-		return !entityIsA(entity, entityClass);
-	}
-	
 	public Entity getEntityFromEvent(EntityEvent event) {
 		return event.entity;
 	}

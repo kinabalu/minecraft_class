@@ -13,8 +13,7 @@ public class PigsDroppingDiamonds extends BaseEvent {
 	@SubscribeEvent
 	public void event(LivingDeathEvent event) {
 		Entity entity = getEntityFromEvent(event);
-		
-		if(entityIsNotA(entity, EntityPig.class)) {
+		if(!(entity instanceof EntityPig)) {
 			return;
 		}
 		

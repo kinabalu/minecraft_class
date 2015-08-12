@@ -4,6 +4,7 @@ package com.annelieseschools.minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityTNTPrimed;
+import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -19,8 +20,7 @@ public class BiggerTNTExplosion extends BaseEvent {
 	@SubscribeEvent
 	public void spawnTNTItem(EntityJoinWorldEvent event) {
 		Entity entity = getEntityFromEvent(event);
-
-		if(entityIsNotA(entity, EntityTNTPrimed.class)) {
+		if(!(entity instanceof EntityTNTPrimed)) {
 			return;
 		}
 		
