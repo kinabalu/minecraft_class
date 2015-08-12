@@ -22,13 +22,8 @@ public class Main extends BaseEventBus {
 	public void init(FMLInitializationEvent event) {
 		addMod(new BlockBreakMessage());
 		addMod(new PigsDroppingDiamonds());
-//		MinecraftForge.EVENT_BUS.register(new ExplodingMinecarts());
-//		MinecraftForge.EVENT_BUS.register(new DiamondOreTrap());
-//		MinecraftForge.EVENT_BUS.register(new BiggerTNTExplosion());
-//		MinecraftForge.EVENT_BUS.register(new SuperJump());
-//		MinecraftForge.EVENT_BUS.register(new SheepsDontDie());
-//		MinecraftForge.EVENT_BUS.register(new SpawnTamedHorse());
-//		MinecraftForge.EVENT_BUS.register(new BouncySponges());
+		addMod(new BiggerTNTExplosion());
+		addMod(new SheepsDontDie());
 	}
 	
 	@EventHandler
