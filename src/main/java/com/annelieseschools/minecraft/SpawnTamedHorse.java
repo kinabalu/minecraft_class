@@ -20,15 +20,29 @@ public class SpawnTamedHorse extends BaseEvent {
 		if(!(entity instanceof EntityCow)) {
 			return;
 		}
-		
-		EntityHorse horse = new EntityHorse(entity.worldObj);
-		horse.setHorseTamed(true);
-		horse.setHorseSaddled(true);
-		horse.setHorseArmorStack(new ItemStack(Items.diamond_horse_armor, 1));
-		//0 = Normal, 1 = Donkey, 2 = Mule, 3 = Undead Horse, 4 = Skeleton Horse
-		//horse.setHorseType(1);
-		
-		spawnEntity(event, horse);
+				
+		// 
+		// We use the LivingDeathEvent as we did with PigsDroppingDiamonds
+		//
+		// The if statement on line 20 says that we kill a cow to get a tamed horse
+		// and what we do next is we want to create a new Entity called a horse
+		//
+		// We do that with the following code:
+		//
+		// EntityHorse horse = new EntityHorse(world);
+		// 
+		// and if we just want to create that horse in our world
+		//
+		// spawnEntity(event, horse);
+		//
+		// we can also set properties on the horse
+		//
+		// horse.setHorseTamed(true);
+		// horse.setHorseSaddled(true);
+		// horse.setHorseArmorStack(new ItemStack(Items.diamond_horse_armor, 1));
+		//
+		// if you want to change these things, please do.  And I'll show you
+		// where to get these properties and how you can change it to suit your needs
 	}
 	
 }

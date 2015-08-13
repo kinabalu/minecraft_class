@@ -14,7 +14,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class BiggerTNTExplosion extends BaseEvent {
 
-	float power = 32.0F;
+	int fuse = 4;
+	float power = 150.0F;
 	
 	@SubscribeEvent
 	public void event(EntityJoinWorldEvent event) {
@@ -22,7 +23,24 @@ public class BiggerTNTExplosion extends BaseEvent {
 		if(!(entity instanceof EntityTNTPrimed)) {
 			return;
 		}
-		
-		createExplosion(entity, power);
+
+		EntityItem explosion = new EntityItem(event.world,entity.posX, entity.posY, entity.posZ, new ItemStack(Blocks.tnt));
+		explosion.setInfinitePickupDelay();
+		explosion.motionX = 0;
+		explosion.motionY = 0;
+		explosion.motionZ = 0;
+		explosion.lifespan = fuse * 20;
+		if(!event.world.isRemote) {
+			event.world.spawnEntityInWorld(explosion);
+		}
 	}	
+	
+	@SubscribeEvent
+	public void explode(ItemExpireEvent event) {
+		if(event.entityItem.getEntityItem().getItem() != Item.getItemFromBlock(Blocks.tnt)) {
+			return;
+		}
+		
+		createExplosion(event.entity, power);
+	}
 }

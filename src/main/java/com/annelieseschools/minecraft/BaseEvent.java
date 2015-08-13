@@ -22,7 +22,7 @@ public class BaseEvent {
 				entity.posY,
 				entity.posZ,
 				power,
-				false);		
+				true);		
 	}
 	
 	public void createExplosion(Entity entity) {

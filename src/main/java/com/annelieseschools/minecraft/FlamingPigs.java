@@ -11,29 +11,14 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 
-public class FlamingPigs implements ICommand {
+public class FlamingPigs extends BaseCommand {
 
-	private List aliases = new ArrayList();
 	private int numberOfPigs = 0;
 	
 	public FlamingPigs() {
-		aliases.add("flamingpigs");
-		aliases.add("fp");
-	}
-	
-	@Override
-	public int compareTo(Object o) {
-		return 0;
-	}
-	
-	@Override
-	public String getCommandUsage(ICommandSender sender) {
-		return "/flamingpigs <number of pigs";
-	}
-	
-	@Override
-	public List getAliases() {
-		return aliases;
+		super("Flaming Pigs", "/flamingpigs <number of pigs>");
+		addAlias("flamingpigs");
+		addAlias("fp");
 	}
 	
 	@Override
@@ -61,27 +46,4 @@ public class FlamingPigs implements ICommand {
 		
 	}
 	
-	private void sendErrorMessage(ICommandSender sender, String message) {
-		sender.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_RED + message));
-	}
-	
-	@Override
-	public boolean canCommandSenderUse(ICommandSender sender) {
-		return sender instanceof EntityPlayer;
-	}
-	
-	@Override
-	public List addTabCompletionOptions(ICommandSender sender, String[] args, BlockPos pos) {
-		return null;
-	}
-	
-	@Override
-	public boolean isUsernameIndex(String[] args, int index ) {
-		return false;
-	}
-
-	@Override
-	public String getName() {
-		return "Flaming Pigs";
-	}
 }
