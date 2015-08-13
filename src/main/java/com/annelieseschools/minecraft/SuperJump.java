@@ -1,5 +1,6 @@
 package com.annelieseschools.minecraft;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -16,6 +17,8 @@ public class SuperJump extends BaseEvent {
 	
 	@SubscribeEvent
 	public void makeJumpHigher(LivingJumpEvent event) {
+		Entity entity = getEntityFromEvent(event);
+
 		if(!(event.entity instanceof EntityPlayer)) {
 			return;
 		}
