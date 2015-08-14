@@ -13,6 +13,7 @@ public class PigsDroppingDiamonds extends BaseEvent {
 	@SubscribeEvent
 	public void event(LivingDeathEvent event) {
 		Entity entity = getEntityFromEvent(event);
+		
 		if(!(entity instanceof EntityPig)) {
 			return;
 		}
@@ -20,6 +21,7 @@ public class PigsDroppingDiamonds extends BaseEvent {
 		if(isRunningLocal(event)) {
 			dropItem(entity, Items.diamond, 5);
 		}
+		
 		//
 		// Check if Entity is a pig or not
 		// - Class is an EntityPig.class

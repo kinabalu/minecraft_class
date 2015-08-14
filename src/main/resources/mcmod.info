@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "modid": "AndrewMods",
+  "name": "Andrew's Mods",
+  "description": "Andrew's Mods for Minecraft.",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "",
+  "url": "http://www.mysticcoders.com",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["kinabalu"],
+  "credits": "The whole class for helping out with the ideas behind this mod",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

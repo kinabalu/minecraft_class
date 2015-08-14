@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+       "down": "andrewmods:blocks/enderBlock",
+         "up": "andrewmods:blocks/enderBlock",
+      "north": "andrewmods:blocks/enderBlock",
+      "south": "andrewmods:blocks/enderBlock",
+       "west": "andrewmods:blocks/enderBlock",
+       "east": "andrewmods:blocks/enderBlock",
+   "particle": "andrewmods:blocks/enderBlock"
+  }
+}

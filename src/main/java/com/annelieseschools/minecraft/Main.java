@@ -1,6 +1,9 @@
 package com.annelieseschools.minecraft;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
@@ -35,7 +38,13 @@ public class Main extends BaseEventBus {
 		// enderBlock = new BlockChanger();
 		// enderBlock = new TheMajesticEnderiumBlock();
 		// enderBlock = new EnderIngotFromEnderBlock();
-		GameRegistry.registerBlock(enderBlock, "enderBlock");		
+		GameRegistry.registerBlock(enderBlock, "enderBlock");
+		Item enderBlockItem = GameRegistry.findItem("andrewmods", "enderBlock");
+		ModelResourceLocation enderBlockModel = new ModelResourceLocation(
+				"andrewmods:enderBlock", "inventory");
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
+				.register(enderBlockItem, 0, enderBlockModel);		
+		
 	}
 	
 	@EventHandler
