@@ -33,6 +33,7 @@ public class Main extends BaseEventBus {
 		addMod(new SheepsDontDie());
 		addMod(new BlockFillerPositionSelector());
 		addMod(new SuperJump());
+		addMod(new Trampoline());
 		
 		enderBlock = new EnderBlock();
 		// enderBlock = new BlockChanger();
