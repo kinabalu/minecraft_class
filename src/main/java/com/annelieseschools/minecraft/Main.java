@@ -33,7 +33,6 @@ public class Main extends BaseEventBus {
 		addMod(new SheepsDontDie());
 		addMod(new BlockFillerPositionSelector());
 		addMod(new SuperJump());
-		addMod(new Trampoline());
 		
 		enderBlock = new EnderBlock();
 		// enderBlock = new BlockChanger();
@@ -51,7 +50,9 @@ public class Main extends BaseEventBus {
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent e) {
         FMLCommonHandler.instance().bus().register(new SpeedTicker());
+        FMLCommonHandler.instance().bus().register(new Trampoline());
         MinecraftForge.EVENT_BUS.register(new SpeedTicker());		
+        MinecraftForge.EVENT_BUS.register(new Trampoline());
 	}
 	
 	
