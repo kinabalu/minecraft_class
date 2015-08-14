@@ -1,7 +1,9 @@
 package com.annelieseschools.minecraft;
 
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
@@ -13,6 +15,14 @@ public class BaseEvent {
 
 	public void postMessage(BreakEvent event, EnumChatFormatting color, String message) {
 		event.getPlayer().addChatComponentMessage(new ChatComponentText(color + message));				
+	}
+	
+	
+	public Block getBelowBlock(World world, Entity entity) {
+		return world.getBlockState(
+				new BlockPos(((int)Math.floor(entity.posX)),
+						((int)Math.floor(entity.posY)) - 1,
+						((int)Math.floor(entity.posZ)))).getBlock();		
 	}
 	
 	public void createExplosion(Entity entity, float power) {

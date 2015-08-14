@@ -23,6 +23,8 @@ public class SuperJump extends BaseEvent {
 			return;
 		}
 		
+		entity.motionY *= SuperJumpCommand.multiplyFactor;
+		
 		// 
 		// First thing we do is make sure this is a player
 		// (NOTE: other things in minecraft jump, or bounce, so we can make pigs jump very high)

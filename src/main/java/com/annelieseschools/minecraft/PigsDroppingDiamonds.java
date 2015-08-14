@@ -2,9 +2,9 @@ package com.annelieseschools.minecraft;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.passive.EntityPig;
+import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemBow;
+import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -13,13 +13,17 @@ public class PigsDroppingDiamonds extends BaseEvent {
 	@SubscribeEvent
 	public void event(LivingDeathEvent event) {
 		Entity entity = getEntityFromEvent(event);
-		
+		World world = getWorldFromEvent(event);
 		if(!(entity instanceof EntityPig)) {
 			return;
 		}
 		
 		if(isRunningLocal(event)) {
 			dropItem(entity, Items.diamond, 5);
+			
+			EntityVillager villager = new EntityVillager(world);
+			spawnEntity(event, villager);
+
 		}
 		
 		//

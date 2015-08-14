@@ -56,6 +56,7 @@ public class Main extends BaseEventBus {
 	
 	@EventHandler
 	public void registerCommands(FMLServerStartingEvent event) {
+		event.registerServerCommand(new SuperJumpCommand());
 		event.registerServerCommand(new FlamingPigs());
 		event.registerServerCommand(new BlockFillerCommand());
 	}

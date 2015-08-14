@@ -5,14 +5,14 @@ import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 
-public class FlamingPigs extends BaseCommand {
+public class SuperJumpCommand extends BaseCommand {
 
-	private int numberOfPigs = 0;
+	public static float multiplyFactor = 5.0f;
 	
-	public FlamingPigs() {
-		super("Flaming Pigs", "/flamingpigs <number of pigs>");
-		addAlias("flamingpigs");
-		addAlias("fp");
+	public SuperJumpCommand() {
+		super("Super Jump Multiply", "/superjump <multiply factor>");
+		addAlias("superjump");
+		addAlias("sj");
 	}
 	
 	@Override
@@ -23,20 +23,12 @@ public class FlamingPigs extends BaseCommand {
 		}
 		
 		try {
-			numberOfPigs = Integer.parseInt(args[0]);			
+			int factor = Integer.parseInt(args[0]);
+			multiplyFactor = (float)factor;
 		} catch(NumberFormatException e) {
 			sendErrorMessage(sender, "The argument \"" + args[0] + "\" is not a valid number!");
 			return;
-		}
-		EntityPlayer player = (EntityPlayer) sender;
-		
-		for(int i=0; i<numberOfPigs; i++) {
-			EntityPig pig = new EntityPig(player.worldObj);
-			pig.setLocationAndAngles(player.posX,  player.posY, player.posZ, 0, 0);
-			pig.setFire(10000);;
-			player.worldObj.spawnEntityInWorld(pig);
-		}
-		
+		}		
 	}
 	
 }
